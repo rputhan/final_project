@@ -42,6 +42,14 @@ def players():
     # latest_info = latest_info[:331]
     return jsonify(latest_info)
 
+@app.route("/betadata")
+def betas():
+    latest_info = dumps(mongo.db.Betas.find())
+    latest_info = json.loads(latest_info)
+    print(type(latest_info))
+    # latest_info = latest_info[:331]
+    return jsonify(latest_info)
+
 # @app.route("/scrape")
 # def scraper():
 #     latest_data = scrape_mars.scrape()
